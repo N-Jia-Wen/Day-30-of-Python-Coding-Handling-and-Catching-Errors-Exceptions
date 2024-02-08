@@ -1,0 +1,19 @@
+try:
+    file = open("a_file.txt", "r")
+    dic = {"key": "value"}
+    print(dic["key"])
+except FileNotFoundError:
+    file = open("a_file.txt", "w")
+    file.write("Placeholder")
+except KeyError as error_message:
+    print(f"The key {error_message} does not exist.")
+else:
+    content = file.read()
+    print(content)
+# 'finally' keyword is not often used but good to know:
+finally:
+    file.close()
+    print("File closed")
+
+# To raise your own error:
+raise TypeError("Test")
